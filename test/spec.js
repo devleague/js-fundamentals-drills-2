@@ -150,7 +150,7 @@ describe("JS Fundamental Drills", function () {
       ]
     });
   });
-  it("#bigDataTrack is a function that takes in 2 arguments 'data' and 'trackName' and changes the selected track full time status to true and doubles the amount of current students attending.", function () {
+  it("#bigDataTrack is a function that takes in 2 arguments 'data' and 'trackName' and changes the selected track full time status to true and sets the current amount of students to 10.", function () {
     var track = func.bigDataTrack(nestedData.schools.devLeague, "bigData");
     expect(track).to.deep.equal({
       bigData: {
@@ -168,9 +168,9 @@ describe("JS Fundamental Drills", function () {
       ], ["user1", "user2", "user3"]
     );
     expect(increment).to.deep.equal({
-      user1: "33 years old",
-      user2: "30 years old",
-      user3: "41 years old"
+      user1: 32,
+      user2: 29,
+      user3: 40
     });
   });
   it("#movieRatings is a function that takes in 2 arguments where the first argument is the key and second argument is the value {key1: val1, key2:val2, key3:val3, etc...}", function () {
@@ -185,17 +185,17 @@ describe("JS Fundamental Drills", function () {
       "Star Wars": 9.5,
       "The Empire Strikes Back": 8,
       "Return of the Jedi": 8.6,
-      "The Fellowship of the Ring": 9.5,
-      "The Two Towers": 8,
-      "The Return of the King": 8.6,
-      "The Hobbit": 9,
-      Ghostbusters: 9.5,
-      "Napolean Dynamite": 8
+      "The Fellowship of the Ring": 9,
+      "The Two Towers": 8.9,
+      "The Return of the King": 9.4,
+      "The Hobbit": 7.8,
+      Ghostbusters: 8.3,
+      "Napolean Dynamite": 7.5
     });
   });
   it("#sumOfAllStudents is a function that takes in an object and returns the sum of all currently enrolled students.", function () {
     var sum = func.sumOfAllStudents(nestedData.schools.devLeague.tracks);
-    expect(sum).to.deep.equal(42);
+    expect(sum).to.deep.equal(47);
   });
   it("#mapLanguageToCreator is a function that takes in 3 arguments 'data', 'createdBy', and 'year' and returns key-value pairs { name: language }.", function () {
     var mapToCreator = func.mapLanguageToCreator(
@@ -234,11 +234,11 @@ describe("JS Fundamental Drills", function () {
       "esirpretne"
     ]);
   });
-  it("#getAgeById is a function that takes in an object and returns an array with the user's username and age.", function () {
+  it("#getAgeById is a function that takes in an object and number and returns an array with the user's username and age.", function () {
     var ageById = func.getAgeById(nestedData.users, 3);
     expect(ageById).to.deep.equal(["user3", 40]);
   });
-  it("#allTheStates is a function that takes in an object and returns an array with all of the state names of where user's have lived. ", function () {
+  it("#allTheStates is a function that takes in an array of objects and returns an array with all of the state names of where user's have lived. ", function () {
     var states = func.allTheStates([
       nestedData.users.data.id["1"],
       nestedData.users.data.id["2"],
@@ -253,7 +253,7 @@ describe("JS Fundamental Drills", function () {
       "newYork"
     ]);
   });
-  it("#allTheMovies is a function that takes in an object and returns an array of strings with all the names of each user's favorite movies.", function () {
+  it("#allTheMovies is a function that takes in an array of objects and returns an array of strings with all the names of each user's favorite movies.", function () {
     var allMovies = func.allTheMovies([
       nestedData.users.data.id["1"],
       nestedData.users.data.id["2"],
@@ -271,7 +271,7 @@ describe("JS Fundamental Drills", function () {
       "Napolean Dynamite"
     ]);
   });
-  it("#addCoffeeFlavor is a function that takes in 2 arguments 'data' and 'number'. Returns the average price of coffee based on total/number. ", function () {
+  it("#addCoffeeFlavor adds the given flavor to each variety of coffee. Returns an object with each coffee name as keys and an array of flavors as the value", function () {
     var newFlavor = func.addCoffeeFlavor(
       nestedData.cafe.coffeeType,
       "pumpkin spice"
@@ -303,7 +303,7 @@ describe("JS Fundamental Drills", function () {
       ]
     });
   });
-  it("#avgCoffeePrice is a function that takes in 2 arguments 'data' and 'number'. Returns the average price of coffee based on total/number. ", function () {
+  it("#avgCoffeePrice is a function that takes in 2 arguments 'data' and 'number'. Returns the average price of coffee based on total/number. Round to the nearest whole number.", function () {
     var avgPrice = func.avgCoffeePrice(nestedData.cafe.coffeeType, 3);
     expect(avgPrice).to.deep.equal(38);
   });
@@ -320,7 +320,7 @@ describe("JS Fundamental Drills", function () {
       }
     });
   });
-  it("#costOfCoffeeOnOrder is a function that takes in an object and returns the total cost of all coffee's on order.", function () {
+  it("#costOfCoffeeOnOrder is a function that takes in an object and returns the total cost of all of the pounds of coffee on order.", function () {
     var onOrderCost = func.costOfCoffeeOnOrder(nestedData.cafe.coffeeType);
     expect(onOrderCost).to.deep.equal(848);
   });
@@ -409,7 +409,7 @@ describe("JS Fundamental Drills", function () {
       }
     });
   });
-  it("#findCoffee is a function that takes in an object and number. Returns a new object with the name of the coffee as the key and the value set to true if the cup of coffee cost less than or equal to number param.", function () {
+  it("#findCoffee is a function that takes in an object and number. Returns a new object with the name of the coffee as the key and the value set to true if the small cup of coffee costs less than or equal to number param.", function () {
     var getCoffeeType = func.findCoffee(nestedData.cafe, 4);
     expect(getCoffeeType).to.deep.equal({
       kona: true,

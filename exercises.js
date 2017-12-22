@@ -96,7 +96,7 @@ var newTrack;
 
 /* #bigDataTrack
  *
- * Takes in 2 arguments 'data' and 'trackName' and changes the selected track full time status to true and doubles the amount of current students attending.
+ * Takes in 2 arguments 'data' and 'trackName' and changes the selected track full time status to true and sets the current amount of students to 10.
  *
  * @param {Object}
  * @param {String}
@@ -109,8 +109,8 @@ var bigDataTrack;
  *
  * Takes in 2 arguments 'value' and 'key' and returns key-value pairs in an object.
  *
- * @param {Object}
- * @param {String}
+ * @param {Array}
+ * @param {Array}
  * @return {Object}
  */
 
@@ -179,7 +179,7 @@ var countLanguages;
 
 var phoneNumber;
 
-/* #phoneNumber
+/* #reverseStrings
  *
  * Takes in an object and returns the names of the tracks offered reversed.
  *
@@ -191,9 +191,10 @@ var reverseStrings;
 
 /* #getAgeById
  *
- * Takes in an object and returns an array with the user's username and age.
+ * Takes in an object and number and returns an array with the user's username and age.
  *
  * @param {Object}
+ * @param {Number}
  * @return {Array}
  */
 
@@ -201,9 +202,9 @@ var getAgeById;
 
 /* #allTheStates
  *
- * Takes in an object and returns an array with all of the state names of where user's have lived.
+ * Takes in an array of objects and returns an array with all of the state names of where user's have lived.
  *
- * @param {Object}
+ * @param {Array}
  * @return {Array}
  */
 
@@ -211,9 +212,9 @@ var allTheStates;
 
 /* #allTheMovies
  *
- * Takes in an object and returns an array of strings with all the names of each user's favorite movies.
+ * Takes in an array of objects and returns an array of strings with all the names of each user's favorite movies.
  *
- * @param {Object}
+ * @param {Array}
  * @return {Array}
  */
 
@@ -221,7 +222,7 @@ var allTheMovies;
 
 /* #addCoffeeFlavor
  *
- * Takes in an object and returns a new object with the name of the coffee as the key and the value as an array of flavors plus a new flavor added to each array.
+ * Adds the given flavor to each variety of coffee. Returns an object with each coffee name as keys and an array of flavors as the value
  *
  * @param {Object}
  * @param {String} flavor
@@ -232,7 +233,7 @@ var addCoffeeFlavor;
 
 /* #avgCoffeePrice
  *
- * Takes in 2 arguments 'data' and 'number'. Returns the average price of coffee based on total/number.
+ * Takes in 2 arguments 'data' and 'number'. Returns the average price of coffee based on total/number. Round to nearest whole number.
  *
  * @param {Object}
  * @param {Number} number of coffee types
@@ -256,7 +257,7 @@ var updateBakedGoodsPrice;
 
 /* #costOfCoffeeOnOrder
  *
- * Takes in an object and returns the total cost of all coffee's on order.
+ * Takes in an object and returns the total cost of all of the pounds of coffee on order.
  *
  * @param {Object}
  * @return {Number}
@@ -265,7 +266,7 @@ var updateBakedGoodsPrice;
 
 var costOfCoffeeOnOrder;
 
-/* #costOfCoffeeOnOrder
+/* #uniqueCoffeeFlavors
  *
  * Takes in an array and returns a new array with all the flavors of coffee displaying only once in the array.
  *
@@ -322,9 +323,10 @@ var getNoMeatSandwiches;
 
 /* #updateCoffeeInventory
  *
- * Takes in an object, array, and number. Should return a new object with the property 'inStock' and 'ordered', set the value to an object with key as the coffee name and the value as the new amount.
+ * Takes in an array (data), array (amtToRemoveFromStock), and number. Update the inStock and ordered values to reflect the data given in amtToRemoveFromStock. Return a new object with the property 
+ * 'inStock' and 'ordered', set the value to an object with key as the coffee name and the value as the new amount. inStock + ordered should not exceed number for each coffee
  *
- * @param {Array}
+ * @param {Array} data
  * @param {Array} amtToRemoveFromStock,
  * @param {Number} maxStock
  * @return {Object}
@@ -333,9 +335,9 @@ var getNoMeatSandwiches;
 
 var updateCoffeeInventory;
 
-/* #findCupOfCoffee
+/* #findCoffee
  *
- * Takes in an object and number. Returns a new object with the name of the coffee as the key and the value set to true if the cup of coffee cost less than or equal to number param.
+ * Takes in an object and number. Returns a new object with the name of the coffee as the key and the value set to true if the small cup of coffee costs less than or equal to number param.
  *
  * @param {Object} data
  * @param {Number} budget
@@ -416,7 +418,7 @@ var top3rankedLang;
 
 var removeIngredient;
 
-/* #removeIngredient
+/* #getPrices
  *
  * Takes in an object and returns a new object with the key as the name of the item and the value set to the price.
  *
