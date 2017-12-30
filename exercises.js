@@ -6,7 +6,19 @@
  * @return {Array}
  */
 
-var getAllUsernames;
+var getAllUsernames = function(obj) {
+  // console.log(obj);
+  //create a new array that contains the result
+  var newArr = [];
+//Variable users is able to reach all the usernames
+  var users = obj.data.id;
+  //for (var i in users)  is used for objects as opposed to arrays
+   for (var i in users) {
+     //pushes the result into the array, newArr[]
+     newArr.push(users[i].username);
+   }
+   return newArr;
+};
 
 /* #hometownCity
  *
@@ -16,8 +28,14 @@ var getAllUsernames;
  * @return {String}
  */
 
-var hometownCity;
+var hometownCity = function(arr){
+//console.log(arr[i].hometown); just to check the console log
+for (var i = 0; i < arr.length; i++){
+  return arr[i].hometown.state.montana.city;
+}
 
+
+}
 /* #usersCurrentState
  *
  * Takes 2 arguments 'data' and 'usernames' and returns a new object with the username as the key and the user's current state as the value.
@@ -27,7 +45,15 @@ var hometownCity;
  * @return {Object}
  */
 
-var usersCurrentState;
+var usersCurrentState = function(data, usernames){
+  var obj = {};
+  for(var i =0;i < data.length; i++){
+      obj[usernames[i]] = data[i][1].currentLocation.state;
+    
+  }
+return obj;
+
+}
 
 /* #findAdmin
  *
@@ -37,7 +63,18 @@ var usersCurrentState;
  * @return {String}
  */
 
-var findAdmin;
+var findAdmin = function(obj){
+  //console.log(obj.data.id)
+  var userAdmin = obj.data.id;
+
+    for(var i in userAdmin){
+      //finds out if a profile is admin or not and finds the username for admins
+      if (userAdmin[i].admin === true){
+        return userAdmin[i].username;
+      }
+    }
+
+}
 
 /* #addNewMovie
  *
@@ -49,7 +86,17 @@ var findAdmin;
  * @return {Array}
  */
 
-var addNewMovie;
+var addNewMovie = function(data, id, newMovie){
+ //console.log(data.data.id[id]);
+var arr = [];
+var favMovie = data.data.id[id].favoriteMovies;
+
+favMovie.push(newMovie);
+return favMovie
+
+
+
+}
 
 /* #favoriteBooks
  *
@@ -59,7 +106,17 @@ var addNewMovie;
  * @return {Array}
  */
 
-var favoriteBooks;
+var favoriteBooks = function(obj){
+  var users = obj.data.id;
+  var arr = [];
+  var obj = {};
+  for(let i in users){
+  obj[users[i].favoriteBook.author] = users[i].favoriteBook.title;
+}
+arr.push(obj);
+return arr;
+
+}
 
 /* #countTracks
  *
@@ -69,7 +126,14 @@ var favoriteBooks;
  * @return {Number}
  */
 
-var countTracks;
+var countTracks = function(obj){
+  var num = 0;
+
+  var tracks = Object.keys(obj.devLeague.tracks).length;
+  num += tracks
+
+  return num;
+}
 
 /* #fullTimeStatus
  *
@@ -106,13 +170,13 @@ var newTrack;
 var studentCount;
 
 module.exports = {
-  getAllUsernames: null,
-  hometownCity: null,
-  usersCurrentState: null,
-  findAdmin: null,
-  addNewMovie: null,
-  favoriteBooks: null,
-  countTracks: null,
+  getAllUsernames: getAllUsernames,
+  hometownCity: hometownCity,
+  usersCurrentState: usersCurrentState,
+  findAdmin: findAdmin,
+  addNewMovie: addNewMovie,
+  favoriteBooks: favoriteBooks,
+  countTracks: countTracks,
   newTrack: null,
   fullTimeStatus: null,
   studentCount: null
